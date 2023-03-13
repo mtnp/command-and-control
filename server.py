@@ -41,6 +41,7 @@ while True:
                     	client.send(output + output_error)
     	except:
             	server.listen(1)
+                client, client_addr = server.accept()
 
 server.close()
 print('Connection Closed')
