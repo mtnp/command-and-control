@@ -1,5 +1,5 @@
 import socket
-from socket import error as SocetError
+from socket import error as SocketError
 import subprocess
 
 HOST = ''
