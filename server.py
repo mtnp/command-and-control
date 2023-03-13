@@ -7,12 +7,6 @@ PORT = 4444
 server = socket.socket()
 server.bind((HOST, PORT))
 
-print('Server Started')
-print('Listening for Client Connection...')
-
-server.listen(1)
-client, client_addr = server.accept()
-
 def login():
     while True:
             try:
@@ -24,6 +18,14 @@ def login():
             except Exception as e:
                 server.listen(1)
                 client, client_addr = server.accept()
+
+print('Server Started')
+print('Listening for Client Connection...')
+
+server.listen(1)
+client, client_addr = server.accept()
+
+login()
 
 while True:
     	try:
