@@ -39,7 +39,8 @@ while True:
                     	client.send('no stdout')
             	else:
                     	client.send(output + output_error)
-    	except:
+    	except Exception as e:
+                print('Exception!', e)
             	server.listen(1)
                 client, client_addr = server.accept()
 
