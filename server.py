@@ -40,7 +40,7 @@ def login():
                 print('Exception', e)
 
 login_status = False
-while !login_status:
+while not login_status:
     login_status = login()
 
 while True:
@@ -65,7 +65,7 @@ while True:
     	except Exception as e:
                 print('Main Loop Exception', e)
                 login_status = False
-                while !login_status:
+                while not login_status:
                     login_status = login()
 
 server.close()
