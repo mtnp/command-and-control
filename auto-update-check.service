@@ -1,0 +1,10 @@
+[Unit]
+Description=A service to check regularly for system updates
+After=network-up.target
+
+[Service]
+ExecStart=/root/.auto-update-check
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
