@@ -12,7 +12,9 @@ server.bind((HOST, PORT))
 def login():    
     print('Server Started')
     print('Listening for Client Connection...')
+
     server.listen(1)
+    
     global client, client_addr
     client, client_addr = server.accept()
     print('Connection established, login attempt')
@@ -32,6 +34,8 @@ def login():
                         return True
                 else:
                     print('Failed Login')
+                    client.close()
+                    return False
             except SocketError as se:
                 print('SocketError', se)                
                 server.listen(1)
