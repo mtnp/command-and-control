@@ -12,7 +12,7 @@ server.bind((HOST, PORT))
 def login():    
     print('Server Started')
     print('Listening for Client Connection...')
-
+    server.settimeout(120)
     server.listen(1)
     
     global client, client_addr
