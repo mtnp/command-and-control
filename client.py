@@ -1,5 +1,6 @@
 # Imports
 from ctypes.wintypes import INT
+from getpass import getpass
 import socket
 import subprocess
 
@@ -14,7 +15,7 @@ client.connect((REMOTE_HOST, REMOTE_PORT))
 print("[-] Connection initiated!")
 
 
-password = input('Enter Password: ')
+password = getpass()
 client.send(password.encode())
 
 # Runtime Loop
