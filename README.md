@@ -9,16 +9,18 @@ ssh into the week4 machine using this command:
 
 ```bash
 ssh user@10.0.2.5
-```
 
-The password for the machine is:
-	hill
+
+The password for the machine is: hill
 
 To escalate privileges use this command:
+
+```bash
 sudo strace -o /dev/null /bin/bash
+```
  
 then type ‘cd’ in order to change into the root directory
-Installing and running the server script on the week4 machine:
+
 Run the following command which will install the backdoor to the machine. Only 2 files will be installed: the script to run the server from GitHub directly, and the systemd service to ensure persistence (explained more in a further section).
 
 ```bash
