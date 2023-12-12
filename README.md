@@ -11,7 +11,7 @@ ssh into the week4 machine using this command:
 ssh user@10.0.2.5
 ```
 
-The password for the machine is: hill
+The password for the machine is: **hill**
 
 To escalate privileges use this command:
 
@@ -31,7 +31,7 @@ curl -s https://raw.githubusercontent.com/athulnair02/command-and-control/main/i
 
 In any spot on the attacking machine add the file:
 
-client.py from the GitHub
+**client.py** from the GitHub
 
 Once you’ve done this, you can run the client script at any time using:
 
