@@ -9,7 +9,7 @@ ssh into the week4 machine using this command:
 
 ```bash
 ssh user@10.0.2.5
-
+```
 
 The password for the machine is: hill
 
